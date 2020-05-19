@@ -1,24 +1,21 @@
 package com.thoughtworks.capability.gtb;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * @author itutry
- * @create 2020-05-15_16:52
+ * @create 2020-05-15_17:23
  */
 public class Practice2Test {
 
   @Test
-  public void test_method1() {
-    final LocalDateTime dateTime = Practice2.method1();
-    Assert.assertEquals("2023-03-09T14:38:34", dateTime.toString());
-  }
+  public void test_getNextWorkDate() {
+    LocalDate workDate1 = Practice2.getNextWorkDate(LocalDate.of(2020, 5, 14));
+    Assert.assertEquals("2020-05-15", workDate1.toString());
 
-  @Test
-  public void test_method2() {
-    final LocalDateTime dateTime = Practice2.method2();
-    Assert.assertEquals("2023-03-09T14:38:34", dateTime.toString());
+    LocalDate workDate2 = Practice2.getNextWorkDate(LocalDate.of(2020, 5, 15));
+    Assert.assertEquals("2020-05-18", workDate2.toString());
   }
 }
